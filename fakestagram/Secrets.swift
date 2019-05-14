@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SAMKeychain
 
 enum Secrets {
     case host

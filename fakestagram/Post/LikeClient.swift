@@ -11,7 +11,7 @@ import Foundation
 class LikeUpdaterClient {
     private let client = Client()
     private let basePath = "/api/posts"
-    private let post: Post
+    private var post: Post
     private let row: Int
 
     init(post: Post, row: Int) {
@@ -30,7 +30,7 @@ class LikeUpdaterClient {
     func like() -> Post {
         guard let postId = post.id else { return post }
         client.request("POST", path: "\(basePath)/\(postId)/like", body: nil, completionHandler: onSuccessLike(response:data:), errorHandler: onError(error:))
-        var post = self.post
+        //var post = self.post
         post.likesCount += 1
         post.liked = true
         return post
@@ -39,7 +39,7 @@ class LikeUpdaterClient {
     func dislike() -> Post {
         guard let postId = post.id else { return post }
         client.request("DELETE", path: "\(basePath)/\(postId)/like", body: nil, completionHandler: onSuccessDislike(response:data:), errorHandler: onError(error:))
-        var post = self.post
+        //var post = self.post
         post.likesCount -= 1
         post.liked = false
         return post
@@ -47,7 +47,7 @@ class LikeUpdaterClient {
 
     func onSuccessLike(response: HTTPResponse, data: Data?) {
         guard response.successful() else { return }
-        var post = self.post
+        //var post = self.post
         post.likesCount += 1
         post.liked = true
         sendNotification(for: post)
@@ -55,7 +55,7 @@ class LikeUpdaterClient {
 
     func onSuccessDislike(response: HTTPResponse, data: Data?) {
         guard response.successful() else { return }
-        var post = self.post
+       // var post = self.post
         post.likesCount -= 1
         post.liked = false
         sendNotification(for: post)
