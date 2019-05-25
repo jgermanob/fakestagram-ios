@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import YPImagePicker
 
 class CameraViewController: UIViewController, UINavigationControllerDelegate {
     let client = CreatePostClient()
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //mamalonImagePicker()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mamalonImagePicker()
         // Do any additional setup after loading the view.
     }
 
@@ -40,6 +45,25 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
         actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion: nil)
         
+    }
+    
+    func mamalonImagePicker(){
+        var config = YPImagePickerConfiguration()
+        config.usesFrontCamera = true
+        YPImagePickerConfiguration.shared = config
+        let picker = YPImagePicker()
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto{
+                print(photo.fromCamera)
+                print(photo.image)
+                print(photo.originalImage)
+                print(photo.modifiedImage)
+                print(photo.exifMeta)
+            }
+            //picker.dismiss(animated: true, completion: nil)
+        }
+        present(picker, animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
     }
 }
 

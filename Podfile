@@ -7,6 +7,7 @@ target 'fakestagram' do
 
   # Pods for fakestagram
   pod 'SAMKeychain'
+  pod 'YPImagePicker'
   target 'fakestagramTests' do
     inherit! :search_paths
     # Pods for testing
