@@ -115,6 +115,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
         tabBarController?.selectedIndex = 0
         postPreview.image = nil
         isFirstTime = true
+        
     }
     
 }

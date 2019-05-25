@@ -1,16 +1,28 @@
 PODS:
+  - PryntTrimmerView (3.0.0)
   - SAMKeychain (1.5.3)
+  - SteviaLayout (4.4.4)
+  - YPImagePicker (4.0.0):
+    - PryntTrimmerView (~> 3.0.0)
+    - SteviaLayout (~> 4.4.1)
 
 DEPENDENCIES:
   - SAMKeychain
+  - YPImagePicker
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - PryntTrimmerView
     - SAMKeychain
+    - SteviaLayout
+    - YPImagePicker
 
 SPEC CHECKSUMS:
+  PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SteviaLayout: 523469269059f2c6da02820bb2ff28a5fe0780aa
+  YPImagePicker: 8039f89ad79281545fa868486f32d9bf5d65ede1
 
-PODFILE CHECKSUM: 9d1dceb71b8c17f82418fba66630906de60afc51
+PODFILE CHECKSUM: 5329f2882bd25898b88cb30cb8738c81476d875f
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.2
