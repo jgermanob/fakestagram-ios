@@ -14,28 +14,38 @@
         <scene sceneID="fT2-kv-dq9">
             <objects>
                 <viewController id="0rS-E4-WRa" customClass="CameraViewController" customModule="fakestagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lar-lz-tt1">
+                    <view key="view" contentMode="scaleAspectFit" id="Lar-lz-tt1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBT-jU-YWy">
-                                <rect key="frame" x="20" y="308" width="335" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="Oh Snap!"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8lZ-Uy-vRf">
+                                <rect key="frame" x="41" y="89" width="293" height="179"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raF-EE-xRU">
+                                <rect key="frame" x="41" y="318" width="293" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn5-w7-l2M">
+                                <rect key="frame" x="136" y="401" width="102" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share"/>
                                 <connections>
-                                    <action selector="onTapSnap:" destination="0rS-E4-WRa" eventType="touchUpInside" id="thv-2p-Boh"/>
+                                    <action selector="sharePost:" destination="0rS-E4-WRa" eventType="touchUpInside" id="aTz-8L-GBD"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="JBT-jU-YWy" firstAttribute="leading" secondItem="SAo-UK-5Ng" secondAttribute="leading" constant="20" id="DKo-Eg-HxG"/>
-                            <constraint firstItem="JBT-jU-YWy" firstAttribute="centerY" secondItem="Lar-lz-tt1" secondAttribute="centerY" id="Jmb-VM-Gpx"/>
-                            <constraint firstItem="SAo-UK-5Ng" firstAttribute="trailing" secondItem="JBT-jU-YWy" secondAttribute="trailing" constant="20" id="fg5-Ob-FJh"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SAo-UK-5Ng"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photo" image="camera" id="ygy-XD-3IH" userLabel="Create"/>
+                    <connections>
+                        <outlet property="postCaption" destination="raF-EE-xRU" id="rGy-Zy-BFr"/>
+                        <outlet property="postPreview" destination="8lZ-Uy-vRf" id="kHG-l3-NWA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfC-sh-ILb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

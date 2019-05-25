@@ -11,15 +11,73 @@ import YPImagePicker
 
 class CameraViewController: UIViewController, UINavigationControllerDelegate {
     let client = CreatePostClient()
+    @IBOutlet weak var postPreview: UIImageView!
+    @IBOutlet weak var postCaption: UITextField!
+    var isFirstTime = true
     
-    override func viewWillAppear(_ animated: Bool) {
-        //mamalonImagePicker()
+    override func viewDidAppear(_ animated: Bool) {
+        if isFirstTime{
+            selectImage()
+        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mamalonImagePicker()
-        // Do any additional setup after loading the view.
+        print("viewDidLoad")
+        /*let picker = YPImagePicker()
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                print(photo.fromCamera) // Image source (camera or library)
+                print(photo.image) // Final image selected by the user
+                print(photo.originalImage) // original image selected by the user, unfiltered
+                print(photo.modifiedImage) // Transformed image, can be nil
+                print(photo.exifMeta) // Print exif meta data of original image.
+            }
+            self.dismiss(animated: true, completion: nil)
+            /*self.dismiss(animated: true, completion: {
+                print("self.dismiss()")
+                picker.dismiss(animated: true, completion: nil)
+            })*/
+            //picker.dismiss(animated: true, completion: nil)
+            self.tabBarController?.selectedIndex = 0
+            
+        }
+        present(picker, animated: true, completion: nil)*/
+        
+    }
+    
+    func selectImage(){
+        isFirstTime = false
+        let picker = YPImagePicker()
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                print(photo.fromCamera) // Image source (camera or library)
+                print(photo.image) // Final image selected by the user
+                print(photo.originalImage) // original image selected by the user, unfiltered
+                print(photo.modifiedImage) // Transformed image, can be nil
+                print(photo.exifMeta) // Print exif meta data of original image.
+                self.postPreview.image = photo.image
+            }
+            
+            if self.postPreview.image == nil{
+                self.dismiss(animated: true, completion: nil)
+                self.tabBarController?.selectedIndex = 0
+                self.isFirstTime = true
+            }else{
+                self.isFirstTime = false
+                picker.dismiss(animated: true, completion: nil)
+            }
+            //self.dismiss(animated: true, completion: nil)
+            /*self.dismiss(animated: true, completion: {
+             print("self.dismiss()")
+             picker.dismiss(animated: true, completion: nil)
+             })*/
+            //picker.dismiss(animated: true, completion: nil)
+            //self.tabBarController?.selectedIndex = 0
+            
+        }
+        present(picker, animated: true, completion: nil)
     }
 
     @IBAction func onTapSnap(_ sender: Any) {
@@ -47,24 +105,18 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
         
     }
     
-    func mamalonImagePicker(){
-        var config = YPImagePickerConfiguration()
-        config.usesFrontCamera = true
-        YPImagePickerConfiguration.shared = config
-        let picker = YPImagePicker()
-        picker.didFinishPicking { [unowned picker] items, _ in
-            if let photo = items.singlePhoto{
-                print(photo.fromCamera)
-                print(photo.image)
-                print(photo.originalImage)
-                print(photo.modifiedImage)
-                print(photo.exifMeta)
-            }
-            //picker.dismiss(animated: true, completion: nil)
+    @IBAction func sharePost(_ sender: UIButton) {
+        print("Share")
+        guard let image = postPreview.image as? UIImage, let imageBase64 = image.encodedBase64() else {return}
+        let payload = CreatePostBase64(title: postCaption.text!, imageData: imageBase64)
+        client.create(payload: payload) { post in
+            print(post)
         }
-        present(picker, animated: true, completion: nil)
-        //self.dismiss(animated: true, completion: nil)
+        tabBarController?.selectedIndex = 0
+        postPreview.image = nil
+        isFirstTime = true
     }
+    
 }
 
 //Extension to upload a post with selected image
