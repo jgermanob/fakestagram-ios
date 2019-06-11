@@ -15,21 +15,26 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var imgView: UIScrollView!
     @IBOutlet weak var titleLbl: UITextView!
     @IBOutlet weak var likeCounterLbl: UILabel!
-
+    @IBOutlet weak var postImageView: UIImageView!
+    
+    override func loadView() {
+        Bundle.main.loadNibNamed("PostDetailViewController", owner: self, options: nil)
+        authorView.author = post.author
+        titleLbl.text = post.title
+        likeCounterLbl.text = post.likesCountText()
+        guard let post = self.post else { return }
+        post.load { [weak self] img in
+            self?.postImageView.image = img
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        //print(authorView.author?.name)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupView(){
+        
     }
-    */
 
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    var post : Post?
     @IBOutlet weak var profileCollectionView: UICollectionView!
     private let reuseIdentifier = "postThumbnailCell"
     @IBOutlet weak var authorView: PostAuthorView!
@@ -51,6 +52,15 @@ class ProfileViewController: UIViewController {
             self?.posts = data
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "postDetailSegue"{
+            let postDetailViewController = segue.destination as! PostDetailViewController
+            postDetailViewController.authorView = self.authorView
+            postDetailViewController.post = self.post!
+            
+        }
+    }
 }
 
 
@@ -64,7 +74,10 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         cell.post = posts[indexPath.row]
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        post = posts[indexPath.row]
+        performSegue(withIdentifier: "postDetailSegue", sender: self)
+    }
     /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: CGFloat((collectionView.frame.size.width / 3) - 20), height: CGFloat(100))
     }

@@ -18,20 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8lZ-Uy-vRf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8lZ-Uy-vRf">
                                 <rect key="frame" x="41" y="89" width="293" height="179"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="179" id="5E6-P7-e81"/>
+                                    <constraint firstAttribute="width" constant="293" id="G0w-yP-ey1"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raF-EE-xRU">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raF-EE-xRU">
                                 <rect key="frame" x="41" y="318" width="293" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="293" id="LY7-W2-X8j"/>
+                                    <constraint firstAttribute="height" constant="30" id="ioV-Z2-S6Z"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn5-w7-l2M">
-                                <rect key="frame" x="136" y="401" width="102" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn5-w7-l2M">
+                                <rect key="frame" x="136" y="401" width="102" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Dyb-cc-rlx"/>
+                                    <constraint firstAttribute="width" constant="102" id="bGt-uY-D1v"/>
+                                </constraints>
                                 <state key="normal" title="Share"/>
                                 <connections>
                                     <action selector="sharePost:" destination="0rS-E4-WRa" eventType="touchUpInside" id="aTz-8L-GBD"/>
@@ -39,6 +48,20 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="raF-EE-xRU" firstAttribute="top" secondItem="8lZ-Uy-vRf" secondAttribute="bottom" constant="50" id="5dn-cx-DSc"/>
+                            <constraint firstItem="8lZ-Uy-vRf" firstAttribute="top" secondItem="SAo-UK-5Ng" secondAttribute="top" constant="69" id="7y0-5I-kyn"/>
+                            <constraint firstItem="raF-EE-xRU" firstAttribute="top" secondItem="8lZ-Uy-vRf" secondAttribute="bottom" constant="50" id="MEd-Qu-ddA"/>
+                            <constraint firstItem="SAo-UK-5Ng" firstAttribute="trailing" secondItem="Kn5-w7-l2M" secondAttribute="trailing" constant="137" id="SxB-8I-6ki"/>
+                            <constraint firstItem="SAo-UK-5Ng" firstAttribute="trailing" secondItem="8lZ-Uy-vRf" secondAttribute="trailing" constant="41" id="UYL-U5-0aI"/>
+                            <constraint firstItem="SAo-UK-5Ng" firstAttribute="trailing" secondItem="raF-EE-xRU" secondAttribute="trailing" constant="41" id="Wkc-cK-7iv"/>
+                            <constraint firstItem="Kn5-w7-l2M" firstAttribute="top" secondItem="raF-EE-xRU" secondAttribute="bottom" constant="53" id="gq2-gd-bLl"/>
+                            <constraint firstItem="Kn5-w7-l2M" firstAttribute="leading" secondItem="SAo-UK-5Ng" secondAttribute="leading" constant="136" id="h29-YD-V70"/>
+                            <constraint firstItem="8lZ-Uy-vRf" firstAttribute="leading" secondItem="SAo-UK-5Ng" secondAttribute="leading" constant="41" id="lAz-CE-UHn"/>
+                            <constraint firstItem="SAo-UK-5Ng" firstAttribute="bottom" secondItem="Kn5-w7-l2M" secondAttribute="bottom" constant="168" id="lmm-SD-Bcd"/>
+                            <constraint firstItem="raF-EE-xRU" firstAttribute="leading" secondItem="SAo-UK-5Ng" secondAttribute="leading" constant="41" id="qlp-XH-NgN"/>
+                            <constraint firstItem="Kn5-w7-l2M" firstAttribute="top" secondItem="raF-EE-xRU" secondAttribute="bottom" constant="53" id="voS-uW-fnh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SAo-UK-5Ng"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photo" image="camera" id="ygy-XD-3IH" userLabel="Create"/>
@@ -112,11 +135,27 @@
                     <connections>
                         <outlet property="authorView" destination="5q0-Ap-zuW" id="rlW-2a-7Tn"/>
                         <outlet property="profileCollectionView" destination="iR7-wM-iiK" id="DLN-Pi-NBm"/>
+                        <segue destination="GtE-8s-RvF" kind="show" identifier="postDetailSegue" id="xM5-3T-2xd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oI-Up-tFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3106.4000000000001" y="796.55172413793105"/>
+        </scene>
+        <!--Post Detail View Controller-->
+        <scene sceneID="h4U-bD-xUw">
+            <objects>
+                <viewController id="GtE-8s-RvF" customClass="PostDetailViewController" customModule="fakestagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1HD-95-ohC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5Rk-9m-7Gt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NpR-wS-nAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4026" y="797"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="GU1-WE-kfL">

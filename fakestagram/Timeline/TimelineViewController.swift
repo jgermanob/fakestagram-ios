@@ -14,7 +14,10 @@ class TimelineViewController: UIViewController {
     var posts: [Post] = [] {
         didSet { postsCollectionView.reloadData() }
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear()")
+        postsCollectionView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configCollectionView()
