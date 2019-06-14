@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		472816243B2A819540DCADE7 /* Pods_fakestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9E564330B5EE868D5F031 /* Pods_fakestagram.framework */; };
 		91A4A31394EC5725F90D0513 /* Pods_fakestagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD1866833018A32F2748405 /* Pods_fakestagramTests.framework */; };
+		B30DF68022B446510035F31A /* CommentAuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30DF67F22B446510035F31A /* CommentAuthorView.swift */; };
 		B367BC6F227E030D00B29D08 /* ProfileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B367BC6E227E030D00B29D08 /* ProfileClient.swift */; };
 		B367BC73227E0A5800B29D08 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B367BC72227E0A5800B29D08 /* ProfileCollectionViewCell.swift */; };
 		D2EFD5AF22B32C2500FC3CFF /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EFD5AE22B32C2500FC3CFF /* CommentsView.swift */; };
@@ -74,6 +75,7 @@
 		5CE9E564330B5EE868D5F031 /* Pods_fakestagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fakestagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AD1D073FCFCC772352D393 /* Pods-fakestagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fakestagramTests/Pods-fakestagramTests.release.xcconfig"; sourceTree = "<group>"; };
 		7FD1866833018A32F2748405 /* Pods_fakestagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fakestagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B30DF67F22B446510035F31A /* CommentAuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAuthorView.swift; sourceTree = "<group>"; };
 		B367BC6E227E030D00B29D08 /* ProfileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClient.swift; sourceTree = "<group>"; };
 		B367BC72227E0A5800B29D08 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2EFD5AE22B32C2500FC3CFF /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				D2F0000322B08557007E2337 /* CommentClient.swift */,
 				D2EFD5AE22B32C2500FC3CFF /* CommentsView.swift */,
 				D2EFD5B022B32DB500FC3CFF /* CommentsViewController.swift */,
+				B30DF67F22B446510035F31A /* CommentAuthorView.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				E09CD7C42274A298007EB84A /* CameraViewController.swift in Sources */,
 				E0BCD23B22489E2300B4E0F6 /* HttpResponse.swift in Sources */,
 				E0F4B04222700427000975C0 /* ProfileViewController.swift in Sources */,
+				B30DF68022B446510035F31A /* CommentAuthorView.swift in Sources */,
 				E01AC9D92273DCF200D5F13C /* LikeClient.swift in Sources */,
 				D2F0000422B08557007E2337 /* CommentClient.swift in Sources */,
 				D2EFD5AF22B32C2500FC3CFF /* CommentsView.swift in Sources */,
