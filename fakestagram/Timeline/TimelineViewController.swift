@@ -11,6 +11,7 @@ import UIKit
 class TimelineViewController: UIViewController {
     @IBOutlet weak var postsCollectionView: UICollectionView!
     let client = TimelineClient()
+    var post : Post? = nil
     var posts: [Post] = [] {
         didSet { postsCollectionView.reloadData() }
     }
@@ -28,16 +29,6 @@ class TimelineViewController: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     private func configCollectionView() {
         postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
@@ -54,10 +45,27 @@ class TimelineViewController: UIViewController {
     }
     
     func loadNextPage(){}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "postDetailSegue"{
+            let postDetailViewController = segue.destination as! PostDetailViewController
+            postDetailViewController.post = self.post!
+            
+        }
+        if segue.identifier == "commentSegue"{
+            let commentsViewController = segue.destination as! CommentsViewController
+            commentsViewController.post = self.post
+            //commentsViewController.postOwner.author = self.post?.author
+        }
+    }
 }
 
-extension TimelineViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+extension TimelineViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CommentButtonDelegate {
+    func onTapCommentButton(post: Post?) {
+        self.post = post
+        performSegue(withIdentifier: "commentSegue", sender: self)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.postsCollectionView.frame.width, height: 600)
     }
@@ -73,6 +81,12 @@ extension TimelineViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.reuseIdentifier, for: indexPath) as! PostCollectionViewCell
         cell.post = posts[indexPath.row]
+        cell.delegate = self
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        post = posts[indexPath.row]
+        performSegue(withIdentifier: "postDetailSegue", sender: self)
     }
 }

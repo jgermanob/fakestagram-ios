@@ -198,6 +198,7 @@
                     <navigationItem key="navigationItem" title="Timeline" id="jsQ-MM-rwB"/>
                     <connections>
                         <outlet property="postsCollectionView" destination="7tD-34-dHG" id="nIL-e8-hby"/>
+                        <segue destination="G2C-3a-P0G" kind="show" identifier="commentSegue" id="11z-5R-KIh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2f-8P-Ldm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,6 +242,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aj7-Fl-ydK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2167.1999999999998" y="796.55172413793105"/>
+        </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="OyM-4a-T0W">
+            <objects>
+                <viewController id="G2C-3a-P0G" customClass="CommentsViewController" customModule="fakestagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CW1-5c-SRw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HVV-t0-mA5" customClass="CommentsView" customModule="fakestagram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="83" width="375" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HPy-fT-llF"/>
+                    </view>
+                    <connections>
+                        <outlet property="postOwner" destination="HVV-t0-mA5" id="nu7-do-eZy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ol-kJ-gdp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="668" y="1762.6686656671666"/>
         </scene>
         <!--Feed-->
         <scene sceneID="MBO-DJ-zt4">

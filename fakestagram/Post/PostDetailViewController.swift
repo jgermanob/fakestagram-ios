@@ -19,6 +19,14 @@ class PostDetailViewController: UIViewController {
     
     override func loadView() {
         Bundle.main.loadNibNamed("PostDetailViewController", owner: self, options: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
+
+    func setupView(){
         authorView.author = post.author
         titleLbl.text = post.title
         likeCounterLbl.text = post.likesCountText()
@@ -26,15 +34,6 @@ class PostDetailViewController: UIViewController {
         post.load { [weak self] img in
             self?.postImageView.image = img
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //print(authorView.author?.name)
-    }
-
-    func setupView(){
-        
     }
 
 }

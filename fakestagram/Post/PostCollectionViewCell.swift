@@ -9,6 +9,7 @@
 import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
+    var delegate: CommentButtonDelegate?
     static let reuseIdentifier = "postViewCell"
     public var row: Int = -1
     public var post: Post? {
@@ -43,4 +44,22 @@ class PostCollectionViewCell: UICollectionViewCell {
         let client = LikeUpdaterClient(post: post, row: row)
         self.post = client.call()
     }
+    
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "postDetailSegue"{
+            let commentsViewController = segue.destination as! CommentsViewController
+            commentsViewController.postOwner.author = post?.author
+            commentsViewController.postOwner.postCaption.text = post?.title
+        }
+    }
+    
+    @IBAction func tapComment(_ sender: Any) {
+        print("tapComment")
+        self.delegate?.onTapCommentButton(post: self.post)
+    }
+    
+}
+
+protocol CommentButtonDelegate {
+    func onTapCommentButton(post: Post?)
 }

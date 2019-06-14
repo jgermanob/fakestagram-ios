@@ -43,6 +43,9 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REL-BQ-2kR">
                         <rect key="frame" x="55" y="430.5" width="67" height="30"/>
                         <state key="normal" title="Comment"/>
+                        <connections>
+                            <action selector="tapComment:" destination="gTV-IL-0wX" eventType="touchUpInside" id="qyF-qh-lJj"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1213 Likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfa-mc-RD9">
                         <rect key="frame" x="250" y="437.5" width="85" height="21"/>

@@ -36,6 +36,7 @@ class CreatePostClient {
                     print("Empty data response")
                     return
                 }
+                print(data)
                 do {
                     let json = try self.decoder.decode(Post.self, from: data)
                     succcess(json)
