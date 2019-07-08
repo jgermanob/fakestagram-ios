@@ -12,12 +12,11 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var postsCollectionView: UICollectionView!
     let client = TimelineClient()
     var post : Post? = nil
+    var pageOffset = 1
+    var loadingPage = false
+    var lastPage = false
     var posts: [Post] = [] {
         didSet { postsCollectionView.reloadData() }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear()")
-        postsCollectionView.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +54,8 @@ class TimelineViewController: UIViewController {
         if segue.identifier == "commentSegue"{
             let commentsViewController = segue.destination as! CommentsViewController
             commentsViewController.post = self.post
+            commentsViewController.commentClient = CommentClient(post: self.post!)
+            commentsViewController.createComment = CreateCommentClient(post: self.post!)
             //commentsViewController.postOwner.author = self.post?.author
         }
     }
@@ -86,7 +87,5 @@ extension TimelineViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        post = posts[indexPath.row]
-        performSegue(withIdentifier: "postDetailSegue", sender: self)
     }
 }

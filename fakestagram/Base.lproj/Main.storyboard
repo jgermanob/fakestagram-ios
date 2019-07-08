@@ -251,16 +251,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HVV-t0-mA5" customClass="CommentsView" customModule="fakestagram" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="83" width="375" height="113"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HVV-t0-mA5" customClass="CommentsView" customModule="fakestagram" customModuleProvider="target">
+                                <rect key="frame" x="16" y="83" width="343" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALt-Px-JS8" customClass="CommentAuthorView" customModule="fakestagram" customModuleProvider="target">
+                                <rect key="frame" x="16" y="551" width="86" height="57"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fi3-Zz-o6I">
+                                <rect key="frame" x="104" y="564" width="207" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdO-Ux-Gba">
+                                <rect key="frame" x="327" y="564" width="31" height="30"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="onTapPostComment:" destination="G2C-3a-P0G" eventType="touchUpInside" id="1Yb-vA-2xs"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BqX-S4-fFk">
+                                <rect key="frame" x="0.0" y="164" width="375" height="379"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="73" id="Oxl-Ob-haf" customClass="CommentCell" customModule="fakestagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oxl-Ob-haf" id="62u-Ix-0br">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rLo-D8-ttv" customClass="CommentAuthorView" customModule="fakestagram" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="12" width="51" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noY-jK-0Ix">
+                                                    <rect key="frame" x="74" y="26" width="119" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQc-mI-X7C">
+                                                    <rect key="frame" x="213" y="19" width="162" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorView" destination="rLo-D8-ttv" id="2r7-p9-psQ"/>
+                                            <outlet property="commentAuthorLabel" destination="noY-jK-0Ix" id="L9v-px-Wcu"/>
+                                            <outlet property="commentLabel" destination="HQc-mI-X7C" id="gCc-tz-iSd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HPy-fT-llF" firstAttribute="trailing" secondItem="fi3-Zz-o6I" secondAttribute="trailing" constant="64" id="0L2-6x-O8g"/>
+                            <constraint firstItem="HVV-t0-mA5" firstAttribute="leading" secondItem="HPy-fT-llF" secondAttribute="leading" constant="16" id="GvO-ns-4fG"/>
+                            <constraint firstItem="HPy-fT-llF" firstAttribute="bottom" secondItem="fi3-Zz-o6I" secondAttribute="bottom" constant="24" id="Oel-eb-Gwt"/>
+                            <constraint firstItem="UdO-Ux-Gba" firstAttribute="leading" secondItem="HPy-fT-llF" secondAttribute="leading" constant="327" id="RcL-sT-d9r"/>
+                            <constraint firstItem="HVV-t0-mA5" firstAttribute="top" secondItem="HPy-fT-llF" secondAttribute="top" constant="19" id="X4t-Kc-2Vh"/>
+                            <constraint firstItem="fi3-Zz-o6I" firstAttribute="leading" secondItem="HPy-fT-llF" secondAttribute="leading" constant="104" id="hSZ-YN-t5r"/>
+                            <constraint firstItem="ALt-Px-JS8" firstAttribute="leading" secondItem="HPy-fT-llF" secondAttribute="leading" constant="16" id="jur-ns-jeA"/>
+                            <constraint firstItem="HPy-fT-llF" firstAttribute="trailing" secondItem="UdO-Ux-Gba" secondAttribute="trailing" constant="17" id="mwE-y8-weT"/>
+                            <constraint firstItem="HPy-fT-llF" firstAttribute="trailing" secondItem="ALt-Px-JS8" secondAttribute="trailing" constant="273" id="n67-ZW-OJL"/>
+                            <constraint firstItem="HPy-fT-llF" firstAttribute="bottom" secondItem="ALt-Px-JS8" secondAttribute="bottom" constant="29" id="sbF-dk-4pv"/>
+                            <constraint firstItem="HPy-fT-llF" firstAttribute="trailing" secondItem="HVV-t0-mA5" secondAttribute="trailing" constant="16" id="vam-ls-lbD"/>
+                            <constraint firstItem="HPy-fT-llF" firstAttribute="bottom" secondItem="UdO-Ux-Gba" secondAttribute="bottom" constant="24" id="wWn-uU-ybF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HPy-fT-llF"/>
                     </view>
                     <connections>
+                        <outlet property="commentButton" destination="UdO-Ux-Gba" id="IQT-Se-wdI"/>
+                        <outlet property="commentTextField" destination="fi3-Zz-o6I" id="zfW-59-9be"/>
+                        <outlet property="commentsTableView" destination="BqX-S4-fFk" id="EtQ-hp-bPS"/>
                         <outlet property="postOwner" destination="HVV-t0-mA5" id="nu7-do-eZy"/>
                     </connections>
                 </viewController>

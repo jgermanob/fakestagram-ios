@@ -20,13 +20,11 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //authorView.author = Author(id: "213", name: "jojo")
-        //authorView.author = Author(id: Secrets.token.value!, name: Account)
        authorView.author = loadProfileInfo()
         getProfilePosts()
         profileCollectionView.delegate = self
         profileCollectionView.dataSource = self
-        
+        navigationItem.title = authorView.author?.name
         // Do any additional setup after loading the view, typically from a nib.
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width

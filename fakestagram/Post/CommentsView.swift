@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-@IBDesignable
 class CommentsView : UIView{
     var author : Author? {
         didSet{ updateView() }

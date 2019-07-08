@@ -12,6 +12,6 @@ struct Comment: Codable{
     let author: Author?
     let id: Int?
     let content: String
-    let createdAt: String
-    let updatedAt: String
+    let createdAt: String?
+    let updatedAt: String?
 }
