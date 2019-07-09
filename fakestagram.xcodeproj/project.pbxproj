@@ -159,6 +159,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D212479522D56079004405A4 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				D2F0000122B08459007E2337 /* Comment.swift */,
+				D2F0000322B08557007E2337 /* CommentClient.swift */,
+				D2EFD5AE22B32C2500FC3CFF /* CommentsView.swift */,
+				D2EFD5B022B32DB500FC3CFF /* CommentsViewController.swift */,
+				B30DF67F22B446510035F31A /* CommentAuthorView.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 		E04FB2D72249F1E600B81C8A /* Storages */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +236,7 @@
 		E0DDF9EF223DF640009EB136 /* fakestagram */ = {
 			isa = PBXGroup;
 			children = (
+				D212479522D56079004405A4 /* Comments */,
 				E0BB974B223F45DE00D028A1 /* Account */,
 				E0F4B040227003F1000975C0 /* Profile */,
 				E0DDFA16223DFCB6009EB136 /* Post */,
@@ -269,12 +282,7 @@
 				E0DDFA2F223E181C009EB136 /* PostDetailViewController.swift */,
 				E0DDFA30223E181C009EB136 /* PostDetailViewController.xib */,
 				E01AC9DA2273DE9000D5F13C /* Like.swift */,
-				D2F0000122B08459007E2337 /* Comment.swift */,
 				E01AC9D82273DCF200D5F13C /* LikeClient.swift */,
-				D2F0000322B08557007E2337 /* CommentClient.swift */,
-				D2EFD5AE22B32C2500FC3CFF /* CommentsView.swift */,
-				D2EFD5B022B32DB500FC3CFF /* CommentsViewController.swift */,
-				B30DF67F22B446510035F31A /* CommentAuthorView.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";

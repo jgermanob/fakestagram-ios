@@ -23,3 +23,5 @@ class CreateCommentClient : RestClient<CreateComment>{
         self.init(client: Client(), path: "/api/posts/\(post.id!)/comments")
     }
 }
+
+

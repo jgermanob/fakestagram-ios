@@ -50,4 +50,14 @@ class PostDetailViewController: UIViewController {
         performSegue(withIdentifier: "profileCommentSegue", sender: self)
     }
     
+    @IBAction func onTapPostSettings(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Post options", message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            
+        }
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    
 }
