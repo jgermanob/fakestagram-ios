@@ -45,7 +45,9 @@ class CommentAuthorView: UIView {
     }
     
     func updateView(){
-        let author = loadProfileInfo()
+        /*let author = loadProfileInfo()
+        avatarView.loadContent(from: author.avatarUrl())*/
+        guard let author = self.author else { return }
         avatarView.loadContent(from: author.avatarUrl())
     }
     

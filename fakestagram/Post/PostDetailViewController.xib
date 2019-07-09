@@ -63,6 +63,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYs-fy-AY1">
                             <rect key="frame" x="43" y="457" width="30" height="30"/>
                             <state key="normal" image="comments"/>
+                            <connections>
+                                <action selector="onTapComment:" destination="-1" eventType="touchUpInside" id="0qK-Jz-pBZ"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

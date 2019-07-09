@@ -54,7 +54,6 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func tapComment(_ sender: Any) {
-        print("tapComment")
         self.delegate?.onTapCommentButton(post: self.post)
     }
     

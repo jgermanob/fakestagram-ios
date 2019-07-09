@@ -35,5 +35,19 @@ class PostDetailViewController: UIViewController {
             self?.postImageView.image = img
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "profileCommentSegue"{
+            let commentsViewController = segue.destination as! CommentsViewController
+            commentsViewController.post = self.post
+            commentsViewController.commentClient = CommentClient(post: self.post!)
+            commentsViewController.createComment = CreateCommentClient(post: self.post!)
+            //commentsViewController.postOwner.author = self.post?.author
+        }
+    }
+    
+    @IBAction func onTapComment(_ sender: UIButton) {
+        performSegue(withIdentifier: "profileCommentSegue", sender: self)
+    }
+    
 }

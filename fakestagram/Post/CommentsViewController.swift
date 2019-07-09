@@ -63,14 +63,15 @@ extension CommentsViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let commentCell = commentsTableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentCell
         commentCell.authorView.author = comments[indexPath.row].author
-        commentCell.authorView.author = commentCell.authorView.loadProfileInfo()
+        commentCell.authorView.updateView()
         commentCell.commentAuthorLabel.text = comments[indexPath.row].author?.name
+        commentCell.commentAuthorLabel.font = UIFont.boldSystemFont(ofSize: commentCell.commentAuthorLabel.font.pointSize)
         commentCell.commentLabel.text = comments[indexPath.row].content
         return commentCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(73)
+        return CGFloat(75)
     }
 }
 
