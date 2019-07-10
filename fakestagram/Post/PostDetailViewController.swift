@@ -10,7 +10,7 @@ import UIKit
 
 class PostDetailViewController: UIViewController {
     public var post: Post!
-
+    private let client = TimelineClient()
     @IBOutlet weak var authorView: PostAuthorView!
     @IBOutlet weak var imgView: UIScrollView!
     @IBOutlet weak var titleLbl: UITextView!
@@ -53,7 +53,8 @@ class PostDetailViewController: UIViewController {
     @IBAction func onTapPostSettings(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Post options", message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
-            
+            self.client.destroy(id: self.post.id!, success: { post in })
+            self.navigationController?.popViewController(animated: true)
         }
         alertController.addAction(deleteAction)
         present(alertController, animated: true, completion: nil)

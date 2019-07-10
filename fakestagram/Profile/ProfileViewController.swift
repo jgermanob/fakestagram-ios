@@ -17,7 +17,11 @@ class ProfileViewController: UIViewController {
     var posts: [Post] = [] {
         didSet { profileCollectionView.reloadData() }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getProfilePosts()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        authorView.author = loadProfileInfo()
