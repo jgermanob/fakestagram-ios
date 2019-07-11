@@ -46,10 +46,14 @@ class RestClient<T> where T: Codable {
     func destroy(id: String, success: @escaping codableResponse) {
         request("DELETE", path: "\(path)/\(id)", payload: nil, success: success, errorHandler: nil)
     }
-
+    
     func request(_ method: String, path: String, payload: T?, success: codableResponse?, errorHandler: errorHandler?) {
+        request(method, path: path, queryItems: nil, payload: payload, success: success, errorHandler: errorHandler)
+    }
+
+    func request(_ method: String, path: String, queryItems: [String: String]?, payload: T?, success: codableResponse?, errorHandler: errorHandler?) {
         let data = encode(payload: payload)
-        client.request(method, path: path, body: data, completionHandler: { (response, data) in
+        client.request(method, path: path, queryItems: queryItems, body: data, completionHandler: { (response, data) in
             guard response.successful() else { return }
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
