@@ -13,8 +13,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostDetailViewController" customModule="fakestagram" customModuleProvider="target">
             <connections>
                 <outlet property="authorView" destination="EJn-kL-eYs" id="vUv-IQ-oNC"/>
+                <outlet property="doneButton" destination="RXM-aJ-9De" id="dwK-ly-rS1"/>
+                <outlet property="editPostTextField" destination="Qav-Q7-3Lg" id="OZr-KM-Xjh"/>
                 <outlet property="imgView" destination="nto-lF-Kms" id="I7U-bG-AGe"/>
                 <outlet property="likeCounterLbl" destination="KFn-If-OfO" id="N4N-bS-a6S"/>
+                <outlet property="optionButton" destination="ngL-60-KXb" id="iWD-4C-HJT"/>
                 <outlet property="postImageView" destination="s23-Bh-4GM" id="Mmk-Qy-Cpf"/>
                 <outlet property="titleLbl" destination="Gqq-yQ-HlR" id="Ktz-6Z-WT9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -37,6 +40,14 @@
                                     <state key="normal" image="settings"/>
                                     <connections>
                                         <action selector="onTapPostSettings:" destination="-1" eventType="touchUpInside" id="EbH-07-R2G"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXM-aJ-9De">
+                                    <rect key="frame" x="314" y="2" width="60" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="done"/>
+                                    <connections>
+                                        <action selector="onTapDoneButton:" destination="-1" eventType="touchUpInside" id="QP0-fm-6nh"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -77,15 +88,24 @@
                                 <action selector="onTapComment:" destination="-1" eventType="touchUpInside" id="0qK-Jz-pBZ"/>
                             </connections>
                         </button>
+                        <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qav-Q7-3Lg">
+                            <rect key="frame" x="8" y="538" width="359" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Qav-Q7-3Lg" secondAttribute="trailing" constant="8" id="3Be-Ae-vmt"/>
                         <constraint firstAttribute="trailing" secondItem="KFn-If-OfO" secondAttribute="trailing" constant="5" id="3pr-Td-5cs"/>
                         <constraint firstItem="Gqq-yQ-HlR" firstAttribute="leading" secondItem="nto-lF-Kms" secondAttribute="leading" constant="5" id="6HA-nt-Tee"/>
                         <constraint firstItem="1eN-BM-b1J" firstAttribute="top" secondItem="s23-Bh-4GM" secondAttribute="bottom" constant="5" id="6ZR-eh-6rh"/>
                         <constraint firstAttribute="bottom" secondItem="Gqq-yQ-HlR" secondAttribute="bottom" constant="136" id="Bim-Nf-IkJ"/>
                         <constraint firstItem="EJn-kL-eYs" firstAttribute="centerX" secondItem="nto-lF-Kms" secondAttribute="centerX" id="GFI-OM-Oae"/>
+                        <constraint firstItem="Qav-Q7-3Lg" firstAttribute="leading" secondItem="nto-lF-Kms" secondAttribute="leading" constant="8" id="GaX-Rv-Kdy"/>
                         <constraint firstItem="hYs-fy-AY1" firstAttribute="firstBaseline" secondItem="s23-Bh-4GM" secondAttribute="baseline" constant="5" id="OIu-LY-g11"/>
                         <constraint firstItem="Gqq-yQ-HlR" firstAttribute="leading" secondItem="1eN-BM-b1J" secondAttribute="leading" id="Pmr-BP-7w8"/>
+                        <constraint firstAttribute="bottom" secondItem="Qav-Q7-3Lg" secondAttribute="bottom" constant="87" id="UIz-6A-o72"/>
                         <constraint firstItem="s23-Bh-4GM" firstAttribute="leading" secondItem="nto-lF-Kms" secondAttribute="leading" id="Uav-vb-wDt"/>
                         <constraint firstAttribute="trailing" secondItem="EJn-kL-eYs" secondAttribute="trailing" constant="5" id="VPe-GP-gM8"/>
                         <constraint firstAttribute="trailing" secondItem="s23-Bh-4GM" secondAttribute="trailing" id="VpC-fS-5lR"/>
@@ -113,6 +133,7 @@
     </objects>
     <resources>
         <image name="comments" width="30" height="30"/>
+        <image name="done" width="60" height="60"/>
         <image name="heart" width="30" height="30"/>
         <image name="settings" width="50" height="50"/>
     </resources>

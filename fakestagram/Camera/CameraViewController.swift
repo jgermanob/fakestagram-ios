@@ -49,7 +49,6 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
     
     //Function to share a post once an image was selected from image picker
     @IBAction func sharePost(_ sender: UIButton) {
-        print("Share")
         guard let image = postPreview.image as? UIImage, let imageBase64 = image.encodedBase64() else {return}
         let payload = CreatePostBase64(title: postCaption.text!, imageData: imageBase64)
         client.create(payload: payload) { post in
